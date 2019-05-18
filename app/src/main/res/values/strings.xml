@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShowsManager</string>
+    <string name="navigation_drawer_open_message">Open drawer</string>
+    <string name="navigation_drawer_close_message">Close Drawer</string>
+</resources>

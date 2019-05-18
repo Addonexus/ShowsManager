@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_popular_shows"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Popular Shows" />
+        <item
+            android:id="@+id/nav_top_rated_shows"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Top Rated Shows" />
+        <item
+            android:id="@+id/nav_watchlist"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Watchlist"
+            />
+        <item
+            android:id="@+id/nav_watchedlist"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="Watched List"
+            />
+    </group>
+
+</menu>
