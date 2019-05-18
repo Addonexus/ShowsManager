@@ -100,6 +100,10 @@ public class ShowsAdapter extends RecyclerView.Adapter<ShowsAdapter.ShowViewHold
 ////                    intent.putExtra(DetailActivity.MOVIE_ITEM, new Gson().toJson(item));
 ////                    itemView.getContext().startActivity(intent);
                     Log.d("ITEM CLIECKED", "TV SHOW WAS CLICKED" + item.getName());
+                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                    intent.putExtra(DetailActivity.SHOW_ITEM, new Gson().toJson(item));
+                    itemView.getContext().startActivity(intent);
+
                 }
             });
 
