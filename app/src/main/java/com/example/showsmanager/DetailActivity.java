@@ -1,8 +1,12 @@
 package com.example.showsmanager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -62,12 +66,18 @@ public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.show_toggle_watch)
     ImageView showToggleWatch;
 
+    @BindView(R.id.view_seasons_of_show)
+    RecyclerView viewSeasonsOfShow;
+
 
     private Call<ShowsDetailsModel> apiCall;
     private Client client = new Client();
 
     private Gson gson = new Gson();
     private ResultShowsItem item;
+
+    private Context context;
+    private SeasonsAdapter adapter;
 
     private Boolean isFavorite = false;
 
@@ -85,6 +95,7 @@ public class DetailActivity extends AppCompatActivity {
         String json = getIntent().getStringExtra(SHOW_ITEM);
         item = gson.fromJson(json, ResultShowsItem.class);
         loadData();
+        setUpSeasonsRV();
 
         showToggleWatch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +105,14 @@ public class DetailActivity extends AppCompatActivity {
         });
 
     }
+
+    private void setUpSeasonsRV() {
+        adapter = new SeasonsAdapter();
+        viewSeasonsOfShow.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        viewSeasonsOfShow.setAdapter(adapter);
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -145,6 +164,7 @@ public class DetailActivity extends AppCompatActivity {
 
                     Log.d("SEAONS", " "+item.getTotalSeasons());
                     showsNumberOfSeasons.setText(String.valueOf(item.getTotalSeasons()));
+                    adapter.replaceAll(response.body().getSeasons());
 
                 }
 

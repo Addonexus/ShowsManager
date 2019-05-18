@@ -1,6 +1,9 @@
 package com.example.showsmanager.API;
 
+import com.example.showsmanager.SeasonsModel;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class ShowsDetailsModel {
     @SerializedName("id")
@@ -17,6 +20,17 @@ public class ShowsDetailsModel {
 
     @SerializedName("number_of_seasons")
     private int totalSeasons;
+
+    public List<SeasonsModel> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<SeasonsModel> seasons) {
+        this.seasons = seasons;
+    }
+
+    @SerializedName("seasons")
+    private List<SeasonsModel> seasons;
 
 
     public int getId() {

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginRight="8dp"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:id="@+id/season_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:id="@+id/show_season_image"
+                android:layout_width="127dp"
+                android:layout_height="191dp"
+                android:padding="1dp"
+                app:srcCompat="@drawable/image_not_avaliable"
+
+                android:background="@drawable/image_border"
+                android:cropToPadding="true"
+
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/season_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="Season" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Episodes:" />
+                    <TextView
+                        android:id="@+id/season_episodes"
+                        android:layout_width="20dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_height="wrap_content"
+                        />
+                    <ImageView
+                        android:id="@+id/show_toggle_watch"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="#000"
+                        android:src="@drawable/watch_icon"
+                        android:tint="@color/colorAccent"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <!--<ImageView-->
+                    <!--android:id="@+id/show_toggle_watch_test"-->
+                    <!--android:layout_width="48dp"-->
+                    <!--android:layout_height="48dp"-->
+                    <!--android:background="#000"-->
+                    <!--android:src="@drawable/watch_icon"-->
+                    <!--android:tint="@color/colorAccent"-->
+                    <!--android:layout_gravity="center"/>-->
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

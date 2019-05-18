@@ -87,7 +87,7 @@ public class ShowsAdapter extends RecyclerView.Adapter<ShowsAdapter.ShowViewHold
             Glide.with(itemView.getContext())
                     .load(BuildConfig.BASE_URL_IMG + "w154" + item.getPosterPath())
                     .apply(new RequestOptions()
-                            .placeholder(R.drawable.ic_launcher_background)
+                            .placeholder(R.drawable.image_not_avaliable)
                             .centerCrop()
                     )
                     .into(img_poster);

@@ -2,6 +2,7 @@ package com.example.showsmanager.API;
 
 import android.database.Cursor;
 
+import com.example.showsmanager.SeasonsModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -22,6 +23,9 @@ public class ResultShowsItem {
 //
 //    @SerializedName("original_language")
 //    private String originalLanguage;
+
+    @SerializedName("seasons")
+    private List<SeasonsModel> seasons;
 
     @SerializedName("vote_count")
     private double voteCount;
@@ -71,7 +75,15 @@ public class ResultShowsItem {
         this.popularity = popularity;
     }
 
-//    public String getOriginCountry() {
+    public List<SeasonsModel> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<SeasonsModel> seasons) {
+        this.seasons = seasons;
+    }
+
+    //    public String getOriginCountry() {
 //        return originCountry;
 //    }
 //

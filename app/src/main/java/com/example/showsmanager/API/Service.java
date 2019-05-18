@@ -21,6 +21,11 @@ public interface Service {
     @GET("tv/{tv_id}")
     Call<ShowsDetailsModel> getDetailsAboutShow(@Path("tv_id") String tv_id);
 
+    @GET("tv/{tv_id}/season/{season_number}")
+    Call<SeasonFromShowsModel> getDetailsAboutShow(@Path("tv_id") String tv_id,@Path("season_number") String season_number,@Query("api_key") String apiKey);
+
+
+
 //    @GET("search/tv")
 //    Call<SearchModel> getSearchShow(@Query("query") String query, @Query("language") String language);
 }

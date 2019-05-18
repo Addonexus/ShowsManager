@@ -34,9 +34,18 @@
             <TextView
                 android:id="@+id/show_overview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
 
-            <include layout="@layout/shows_seasons_rv" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seasons"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <include layout="@layout/seasons_shows_fragment" />
 
         </LinearLayout>
 
