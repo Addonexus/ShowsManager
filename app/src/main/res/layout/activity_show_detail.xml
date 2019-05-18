@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -34,6 +35,8 @@
                 android:id="@+id/show_overview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <include layout="@layout/shows_seasons_rv" />
 
         </LinearLayout>
 

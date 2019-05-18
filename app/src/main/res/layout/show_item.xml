@@ -34,23 +34,46 @@
                     android:id="@+id/showTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     android:text="Title" />
-                <TextView
-                    android:id="@+id/show_first_aired"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="First Aired" />
+                    android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Aired:" />
+                <TextView
+                    android:id="@+id/show_first_aired"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_height="wrap_content"
+                     />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating:" />
+                <TextView
+                    android:id="@+id/showRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/showDescription"
                     android:layout_width="match_parent"
                     android:layout_height="155dp"
                     android:text="Description" />
-                <TextView
-                    android:id="@+id/showRating"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rating" />
+
             </LinearLayout>
         </LinearLayout>
 
