@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewHolder> {
-    private List<SeasonsModel> list = new ArrayList<>();
+    private List<EpisodesModel> list = new ArrayList<>();
     @Override
     public EpisodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.episode_item, viewGroup, false);
@@ -28,6 +29,7 @@ class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewH
 
     @Override
     public void onBindViewHolder(EpisodeViewHolder holder, int position) {
+
         holder.bind(list.get(position));
 
     }
@@ -37,7 +39,7 @@ class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewH
         return list.size();
     }
 
-    public void replaceAll(List<SeasonsModel> items) {
+    public void replaceAll(List<EpisodesModel> items) {
         list.clear();
         list = items;
         notifyDataSetChanged();
@@ -57,10 +59,10 @@ class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewH
         TextView episodeRating;
 
         @BindView(R.id.episode_number)
-        LinearLayout episodeNumber;
+        TextView episodeNumber;
 
         @BindView(R.id.episode_description)
-        TextView episodeeDescription;
+        TextView episodeDescription;
 
         @BindView(R.id.episode_item)
         LinearLayout episodeItem;
@@ -72,16 +74,25 @@ class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewH
             ButterKnife.bind(this, itemView);
         }
 
-        public void bind(final SeasonsModel item) {
+        public void bind(final EpisodesModel item) {
+            Log.d("EPISODE BIND", "bind: TRYING TO BIND STINGS");
             episodeTitle.setText(item.getName());
-//            episodeRating.setText(String.valueOf(item.get()));
-//            Glide.with(itemView.getContext())
-//                    .load(BuildConfig.BASE_URL_IMG + "w154" + item.getPosterPath())
-//                    .apply(new RequestOptions()
-//                            .placeholder(R.drawable.image_not_avaliable)
-//                            .centerCrop()
-//                    )
-//                    .into(seasonImage);
+            episodeDescription.setText(item.getOverview());
+
+            DecimalFormat df = new DecimalFormat("#.#");
+
+            episodeRating.setText(String.valueOf(df.format(item.getVoteAverage())));
+            episodeNumber.setText(String.valueOf(item.getEpisodeNumber()));
+
+            episodeFirstAired.setText(String.valueOf(item.getAir_date()));
+            Log.d("IMAGE URL", BuildConfig.BASE_URL_IMG +"w185" + item.getPosterPath());
+            Glide.with(itemView.getContext())
+                    .load(BuildConfig.BASE_URL_IMG + "w185" + item.getPosterPath())
+                    .apply(new RequestOptions()
+                            .placeholder(R.drawable.image_not_avaliable)
+                            .centerCrop()
+                    )
+                    .into(episodeImage);
 
 
             episodeItem.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +101,7 @@ class EpisodesAdapter  extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewH
 //                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
 ////                    intent.putExtra(DetailActivity.MOVIE_ITEM, new Gson().toJson(item));
 ////                    itemView.getContext().startActivity(intent);
-                    Log.d("ITEM CLIECKED", "Season SHOW WAS CLICKED" + item.getName());
+                    Log.d("ITEM CLIECKED", "Season Episode WAS CLICKED " + item.getName());
 //                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
 //                    intent.putExtra(DetailActivity.SHOW_ITEM, new Gson().toJson(item));
 //                    itemView.getContext().startActivity(intent);

@@ -2,7 +2,7 @@ package com.example.showsmanager;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SeasonsModel {
+public class EpisodesModel {
 
     @SerializedName("air_date")
     private String air_date;
@@ -10,15 +10,15 @@ public class SeasonsModel {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("episode_count")
-    private int episodeCount;
+    @SerializedName("episode_number")
+    private int episodeNumber;
 
-    @SerializedName("season_number")
-    private int seasonNumber;
-
-    @SerializedName("poster_path")
+    @SerializedName("still_path")
     private String posterPath;
 
+
+    @SerializedName("vote_average")
+    private double voteAverage;
     @SerializedName("overview")
     private String overview;
 
@@ -44,6 +44,14 @@ public class SeasonsModel {
         this.showId = showId;
     }
 
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
     public int getId() {
         return id;
     }
@@ -52,20 +60,13 @@ public class SeasonsModel {
         this.id = id;
     }
 
-    public int getEpisodeCount() {
-        return episodeCount;
+
+    public int getEpisodeNumber() {
+        return episodeNumber;
     }
 
-    public void setEpisodeCount(int episodeCount) {
-        this.episodeCount = episodeCount;
-    }
-
-    public int getSeasonNumber() {
-        return seasonNumber;
-    }
-
-    public void setSeasonNumber(int seasonNumber) {
-        this.seasonNumber = seasonNumber;
+    public void setEpisodeNumber(int episodeNumber) {
+        this.episodeNumber = episodeNumber;
     }
 
     public String getPosterPath() {
@@ -92,17 +93,16 @@ public class SeasonsModel {
         this.name = name;
     }
 
-
     @Override
     public String toString() {
-        return "SeasonsModel{" +
+        return "EpisodesModel{" +
                 "air_date='" + air_date + '\'' +
                 ", id=" + id +
-                ", episodeCount=" + episodeCount +
-                ", seasonNumber=" + seasonNumber +
+                ", episodeNumber=" + episodeNumber +
                 ", posterPath='" + posterPath + '\'' +
                 ", overview='" + overview + '\'' +
                 ", name='" + name + '\'' +
+                ", showId=" + showId +
                 '}';
     }
 }

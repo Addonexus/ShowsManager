@@ -31,6 +31,7 @@ import retrofit2.Response;
 public class DetailActivity extends AppCompatActivity {
 
     public static final String SHOW_ITEM = "show_item";
+    public static final String SHOW_ID = "show_id";
 
 
     @BindView(R.id.collapsing_toolbar)
@@ -107,7 +108,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void setUpSeasonsRV() {
-        adapter = new SeasonsAdapter();
+        Log.d("RV SETUP ON DETAULS", "setUpSeasonsRV: item id " + item.getId());
+        adapter = new SeasonsAdapter(item.getId());
         viewSeasonsOfShow.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         viewSeasonsOfShow.setAdapter(adapter);
 

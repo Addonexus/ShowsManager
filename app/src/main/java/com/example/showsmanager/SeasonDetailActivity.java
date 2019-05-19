@@ -92,7 +92,7 @@ public class SeasonDetailActivity extends AppCompatActivity {
         String json = getIntent().getStringExtra(SEASON_ITEM);
         item = gson.fromJson(json, SeasonsModel.class);
         loadData();
-//        setUpEpisodesRV();
+        setUpEpisodesRV();
 
         seasonToggleWatch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,23 +122,30 @@ public class SeasonDetailActivity extends AppCompatActivity {
     }
 
     private void setUpEpisodesRV() {
+        Log.d("SETTING UP RV FOR EPI", "setUpEpisodesRV: setting ");
         adapter = new EpisodesAdapter();
-        viewEpisodesOfSeason.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        Log.d("SETTING UP RV FOR EPI", "setUpEpisodesRV: working ");
+        viewEpisodesOfSeason.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         viewEpisodesOfSeason.setAdapter(adapter);
+        Log.d("SETTING UP RV FOR EPI", "setUpEpisodesRV: worked ");
 
     }
 
 //  method to get episodes to view
     private void loadDataFromServer(String seasonItem, String seasonNumber) {
+        Log.d("BEFORE CALLING EPI", "" + seasonItem + " " + seasonNumber);
         apiCall = client.getService().getSeasonDetailsFromShow(seasonItem, seasonNumber);
+        Log.d("BEFORE CALLING SERVICE", "this is woring");
         apiCall.enqueue(new Callback<SeasonDetailsModel>() {
+
 
             @Override
             public void onResponse(Call<SeasonDetailsModel> call, Response<SeasonDetailsModel> response) {
+                Log.d("RESPONSE", response.toString());
                 if (response.isSuccessful()) {
                     SeasonDetailsModel item = response.body();
 
-                    Log.d("SEAONS", " "+item.getResults());
+                    Log.d("EPISODSE", " "+item.getResults());
 //                    showsNumberOfSeasons.setText(String.valueOf(item.getTotalSeasons()));
                     adapter.replaceAll(response.body().getResults());
 
@@ -149,17 +156,20 @@ public class SeasonDetailActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<SeasonDetailsModel> call, Throwable t) {
                 loadFailed();
+                t.printStackTrace();
+                Log.d("FAILURE", "onFailure: SOMETHING WENT WRONG WHEN CALLING FROM SERVER");
 
             }
         });
     }
     private void loadFailed() {
+
         Toast.makeText(this, "SOMETHING WENT WRONG LOADING THE SEASONS DETAILS", Toast.LENGTH_SHORT).show();
     }
 
     private void loadData() {
 
-//        loadDataFromServer(String.valueOf(item.getId()),String.valueOf(item.getSeasonNumber()));
+        loadDataFromServer(String.valueOf(item.getShowId()),String.valueOf(item.getSeasonNumber()));
 
         getSupportActionBar().setTitle((item.getName()));
 

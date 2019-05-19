@@ -1,5 +1,6 @@
 package com.example.showsmanager.API;
 
+import com.example.showsmanager.EpisodesModel;
 import com.example.showsmanager.SeasonsModel;
 import com.google.gson.annotations.SerializedName;
 
@@ -51,15 +52,15 @@ public class SeasonDetailsModel {
     @SerializedName("vote_count")
     private double voteCount;
 
-    @SerializedName("results")
-    private List<SeasonsModel> results;
+    @SerializedName("episodes")
+    private List<EpisodesModel> results;
 
 
-    public void setResults(List<SeasonsModel> results) {
+    public void setResults(List<EpisodesModel> results) {
         this.results = results;
     }
 
-    public List<SeasonsModel> getResults() {
+    public List<EpisodesModel> getResults() {
         return results;
     }
 

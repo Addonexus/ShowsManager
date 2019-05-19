@@ -21,8 +21,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.content.ContentValues.TAG;
+
 class SeasonsAdapter extends RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolder> {
     private List<SeasonsModel> list = new ArrayList<>();
+    private int showId;
+
+    public SeasonsAdapter(int id) {
+        Log.d(TAG, "SeasonsAdapter: value of id passed " + id);
+        showId = id;
+    }
+
     @Override
     public SeasonViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.season_item, viewGroup, false);
@@ -83,7 +92,11 @@ class SeasonsAdapter extends RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolde
 ////                    itemView.getContext().startActivity(intent);
                     Log.d("ITEM CLIECKED", "Season SHOW WAS CLICKED" + item.getName());
                     Intent intent = new Intent(itemView.getContext(), SeasonDetailActivity.class);
+                    item.setShowId(showId);
                     intent.putExtra(SeasonDetailActivity.SEASON_ITEM, new Gson().toJson(item));
+
+
+                    Log.d("BEFORE INTENT", "item id before passed into intent " + item.getShowId() + " " + showId);
                     itemView.getContext().startActivity(intent);
 
                 }
