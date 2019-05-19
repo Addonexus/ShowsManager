@@ -55,28 +55,27 @@
                         android:text="Episodes:" />
                     <TextView
                         android:id="@+id/season_episodes"
-                        android:layout_width="20dp"
+                        android:layout_width="wrap_content"
                         android:layout_marginLeft="2dp"
-                        android:layout_marginRight="3dp"
                         android:layout_height="wrap_content"
                         />
-                    <ImageView
-                        android:id="@+id/show_toggle_watch"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:background="#000"
-                        android:src="@drawable/watch_icon"
-                        android:tint="@color/colorAccent"
-                        android:layout_gravity="center"/>
+                    <!--<ImageView-->
+                        <!--android:id="@+id/show_toggle_watch"-->
+                        <!--android:layout_width="32dp"-->
+                        <!--android:layout_height="32dp"-->
+                        <!--android:background="#000"-->
+                        <!--android:src="@drawable/watch_icon"-->
+                        <!--android:tint="@color/colorAccent"-->
+                        <!--android:layout_gravity="center"/>-->
                 </LinearLayout>
-                <!--<ImageView-->
-                    <!--android:id="@+id/show_toggle_watch_test"-->
-                    <!--android:layout_width="48dp"-->
-                    <!--android:layout_height="48dp"-->
-                    <!--android:background="#000"-->
-                    <!--android:src="@drawable/watch_icon"-->
-                    <!--android:tint="@color/colorAccent"-->
-                    <!--android:layout_gravity="center"/>-->
+                <ImageView
+                    android:id="@+id/show_toggle_watch_test"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="#000"
+                    android:src="@drawable/watch_icon"
+                    android:tint="@color/colorAccent"
+                    android:layout_gravity="center"/>
 
 
             </LinearLayout>

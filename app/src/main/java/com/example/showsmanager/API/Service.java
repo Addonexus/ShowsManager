@@ -22,7 +22,7 @@ public interface Service {
     Call<ShowsDetailsModel> getDetailsAboutShow(@Path("tv_id") String tv_id);
 
     @GET("tv/{tv_id}/season/{season_number}")
-    Call<SeasonFromShowsModel> getDetailsAboutShow(@Path("tv_id") String tv_id,@Path("season_number") String season_number,@Query("api_key") String apiKey);
+    Call<SeasonDetailsModel> getSeasonDetailsFromShow(@Path("tv_id") String tv_id,@Path("season_number") String season_number,@Query("api_key") String apiKey);
 
 
 

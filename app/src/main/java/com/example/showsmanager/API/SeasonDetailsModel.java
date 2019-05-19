@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SeasonFromShowsModel {
+public class SeasonDetailsModel {
 
     @SerializedName("id")
     private int id;
@@ -31,7 +31,7 @@ public class SeasonFromShowsModel {
     @Override
     public String toString() {
         return
-                "SeasonFromShowsModel{" +
+                "SeasonDetailsModel{" +
 
                         ",results = '" + results + '\'' +
 
