@@ -82,9 +82,9 @@ class SeasonsAdapter extends RecyclerView.Adapter<SeasonsAdapter.SeasonViewHolde
 ////                    intent.putExtra(DetailActivity.MOVIE_ITEM, new Gson().toJson(item));
 ////                    itemView.getContext().startActivity(intent);
                     Log.d("ITEM CLIECKED", "Season SHOW WAS CLICKED" + item.getName());
-//                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
-//                    intent.putExtra(DetailActivity.SHOW_ITEM, new Gson().toJson(item));
-//                    itemView.getContext().startActivity(intent);
+                    Intent intent = new Intent(itemView.getContext(), SeasonDetailActivity.class);
+                    intent.putExtra(SeasonDetailActivity.SEASON_ITEM, new Gson().toJson(item));
+                    itemView.getContext().startActivity(intent);
 
                 }
             });

@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.showsmanager.DetailActivity">
-    <!--Also used in com.example.showsmanager.SeasonDetailActivity-->
-<!--TODO change name to show seasons fragment-->
+    tools:context="com.example.showsmanager.SeasonDetailActivity">
+    <!--TODO change name to show seasons fragment-->
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/view_seasons_of_show"
+        android:id="@+id/view_episodes_of_season"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
